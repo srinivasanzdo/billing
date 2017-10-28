@@ -1,0 +1,10 @@
+{
+  "name": "development",
+  "description": "Add here any environment specific stuff you like.",
+  "db_host":"localhost",
+  "db_database":"testdb",
+  "db_username":"root",
+  "db_password":"",
+  "db_port":"3306",
+  "db_dialect":"mysql"
+}
