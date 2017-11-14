@@ -1,8 +1,30 @@
 <% layout('../../../layout') -%>
+
 <div class="container">
 <div class="row">
     <div class="col-md-3">
         <button type="button" class="btn btn-primary"><%= title %></button>
     </div>
+
+    <table id="userTable" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>username</th>
+                <th>firstname</th>
+                <th>lastname</th>
+                <th>companyname</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Id</th>
+                <th>username</th>
+                <th>firstname</th>
+                <th>lastname</th>
+                <th>companyname</th>
+            </tr>
+        </tfoot>
+    </table>
 </div>
 </div>

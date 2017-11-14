@@ -1,7 +1,7 @@
 import { Table, Column, Model, PrimaryKey } from 'sequelize-typescript';
 
 @Table({
-    tableName: "test"
+    tableName: "tbl_users"
 })
 
 export class Test extends Model<Test>{
@@ -11,6 +11,39 @@ export class Test extends Model<Test>{
     id: number;
 
     @Column
-    fname: string;
+    username: string;
+
+    @Column
+    firstname: string;
+
+    @Column
+    lastname: string;
+
+    @Column
+    companyname: string;
+
+    @Column
+    phoneno: string;
+
+    @Column
+    email: string;
+
+    @Column
+    password: string;
+
+    @Column
+    isActive: number;
+
+    @Column
+    createdAt: Date;
+
+    @Column
+    modifiedAt: Date;
+
+    @Column
+    deletedAt: Date;
+
+    @Column
+    isAdmin: number;
 
 }

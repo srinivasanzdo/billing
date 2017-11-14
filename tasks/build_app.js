@@ -41,6 +41,12 @@ gulp.task('ejs', function () {
         .pipe(gulp.dest(distDir.path('views')));
 });
 
+
+gulp.task('js', function () {
+    return gulp.src('src/assets/**/*.js')
+        .pipe(gulp.dest('dist/assets'));
+});
+
 gulp.task('watch', function () {
     var beepOnError = function (done) {
         return function (err) {
@@ -51,8 +57,12 @@ gulp.task('watch', function () {
         };
     };
 
+    watch(['src/assets/**', 'src/**/**/**.js'], { ignoreInitial: false })
+        .pipe(gulp.dest(distDir.path('assets')));
+
+
     watch(['src/views/**', 'src/**/**/**.ejs'], { ignoreInitial: false })
-    .pipe(gulp.dest(distDir.path('views')));
+        .pipe(gulp.dest(distDir.path('views')));
 
     watch('src/**/*.ts', batch(function (events, done) {
         runsequence('ts', done);
@@ -75,4 +85,4 @@ gulp.task('move', function () {
 });
 
 
-gulp.task('build', runsequence('ts', 'sass', 'environment', 'ejs', 'clean', 'move'));
+gulp.task('build', runsequence('ts', 'sass', 'environment', 'ejs', 'clean', 'move', 'js'));

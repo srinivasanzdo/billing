@@ -15,6 +15,7 @@ export class Routes extends Core.BaseRoutes {
         let self = this;
 
         self.route.get("/test", self.accountViewController.getList());
+        self.route.get("/user/data", self.accountViewController.getUserList());
         
         return self.route;
     }
