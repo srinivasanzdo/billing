@@ -32,6 +32,7 @@ export class Server {
     app.engine('ejs', engine);
     app.set('view engine', 'ejs');
     app.set('views', __dirname + '/views');
+    app.use('/assets', express.static(path.join(__dirname, '/assets')));
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(function (req, res, next) {
@@ -85,8 +86,8 @@ export class Server {
   }
 
   factory(data: any, baseUrl: any) {
-    console.log(baseUrl(data.toLowerCase()));
-    console.log(new Modules[data + "Routes"](express.Router()).Routes());
+    //console.log(baseUrl(data.toLowerCase()));
+    //console.log(new Modules[data + "Routes"](express.Router()).Routes());
     app.use(baseUrl(data.toLowerCase()), new Modules[data + "Routes"](express.Router()).Routes());
   }
 
