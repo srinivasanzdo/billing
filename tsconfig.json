@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
@@ -14,8 +14,5 @@
   "files": [
     "./src/app.ts",
     "./src/background.ts"
-  ],
-  "angularCompilerOptions": {
-    "skipTemplateCodegen": true
-  }
+  ]
 }

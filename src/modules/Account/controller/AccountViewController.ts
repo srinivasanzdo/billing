@@ -13,6 +13,7 @@ export class AccountViewController extends Core.BaseController { ddad
     index() {
         let self = this;
         return async (req: any, res: any) => {
+            //test return
             return "test.....";
         }
     }

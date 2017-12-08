@@ -1,5 +1,6 @@
 'use strict';
 
+const path = require('path');
 var gulp = require('gulp');
 var clean = require('gulp-clean');
 var sass = require('gulp-sass');
@@ -11,6 +12,7 @@ var jetpack = require('fs-jetpack');
 var bundle = require('./bundle');
 var utils = require('./utils');
 var runsequence = require('run-sequence');
+var sourcemaps = require('gulp-sourcemaps');
 
 var projectDir = jetpack;
 var srcDir = jetpack.cwd('./src');
@@ -21,8 +23,19 @@ var tsProject = ts.createProject('tsconfig.json');
 
 gulp.task('ts', function () {
     var tsResult = gulp.src('src/**/*.ts')
+        .pipe(sourcemaps.init()) 
         .pipe(tsProject());
-    return tsResult.js.pipe(gulp.dest('dist'));
+    return tsResult.js
+    .pipe(sourcemaps.write({
+        includeContent: false,
+        sourceRoot: function (file) {
+          // Difference from westy92's solution:
+          //   file.path contains the absolute file path (including file name),
+          //   so I get the file's directory and calculate the relative path to the base directory.
+          return path.relative(path.dirname(file.path), file.base);
+        }
+      }))
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('sass', function () {
