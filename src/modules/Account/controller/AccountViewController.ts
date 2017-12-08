@@ -35,6 +35,8 @@ export class AccountViewController extends Core.BaseController { ddad
             let result = await self.accountViewBusiness.getUserList(req.query);
             let data = {
                 data: result,
+                recordsTotal: 4,
+                recordsFiltered: 4,
                 draw: req.query.draw++
             }
             return res.send(data);

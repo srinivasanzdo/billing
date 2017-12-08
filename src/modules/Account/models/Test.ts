@@ -22,28 +22,4 @@ export class Test extends Model<Test>{
     @Column
     companyname: string;
 
-    @Column
-    phoneno: string;
-
-    @Column
-    email: string;
-
-    @Column
-    password: string;
-
-    @Column
-    isActive: number;
-
-    @Column
-    createdAt: Date;
-
-    @Column
-    modifiedAt: Date;
-
-    @Column
-    deletedAt: Date;
-
-    @Column
-    isAdmin: number;
-
 }
